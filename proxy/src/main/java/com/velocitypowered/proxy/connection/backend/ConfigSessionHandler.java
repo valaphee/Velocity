@@ -327,8 +327,7 @@ public class ConfigSessionHandler implements MinecraftSessionHandler {
   public boolean handle(KnownPacksPacket packet) {
     // Server expects us to reply to this packet
     if (serverConn.getPlayer().getConnection().getState() != StateRegistry.CONFIG) {
-      // TODO: just replay the first packet the user sent
-      serverConn.ensureConnected().write(packet);
+      serverConn.ensureConnected().write(new KnownPacksPacket());
       return true;
     }
     return false; // forward
