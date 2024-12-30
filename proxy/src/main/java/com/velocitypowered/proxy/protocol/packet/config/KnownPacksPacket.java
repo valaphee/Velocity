@@ -32,6 +32,10 @@ public class KnownPacksPacket implements MinecraftPacket {
 
     private KnownPack[] packs;
 
+    public KnownPacksPacket() {
+        packs = new KnownPack[0];
+    }
+
     @Override
     public void decode(ByteBuf buf, ProtocolUtils.Direction direction,
                        ProtocolVersion protocolVersion) {
